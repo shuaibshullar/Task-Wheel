@@ -28,4 +28,7 @@ Homestead.yaml
 Thumbs.db
 /.agents/
 /AGENTS.md
-/Delets Directory/
+/resources/fonts-manifest.json
+/resources/manifest.json
+/resources/hot
+/resources/fonts-manifest.dev.json
