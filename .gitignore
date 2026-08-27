@@ -8,6 +8,7 @@
 /.codex
 /.cursor/
 /.idea
+/.agents
 /.nova
 /.phpunit.cache
 /.vscode
@@ -15,6 +16,7 @@
 /auth.json
 /node_modules
 /public/build
+/public/assets
 /public/fonts-manifest.dev.json
 /public/hot
 /public/storage
