@@ -3,7 +3,7 @@
 # 📝 Task Wheel Project 📝
 
 </div>
-<br>
+<br><br>
 
 ## 📖 About Task Wheel project
 This project is a task management application that features a unique and interactive **Task Wheel** interface to display tasks intuitively. It provides a structured way to organize and track workflow based on categories and user roles.
@@ -30,6 +30,8 @@ This project is a task management application that features a unique and interac
 *   **Email Verification:** The system does not yet include an email verification step during registration.
 *   **Category Management:** You can't delete and modify category.
 
+<br>
+
 ## 🚀 Getting Started
 1.  **First, installation:** you have to install **[PHP](https://www.php.net/downloads.php), [Composer](https://getcomposer.org/download/) and [Node.js](https://nodejs.org/en/download)** also you can see **[Laravel installation page](https://laravel.com/framework/docs/installation).**
 When you install them for the first time be sure about environment variables. Also, you may need to change **php.ini file** to apply some extensions which composer need them.
@@ -37,18 +39,23 @@ When you install them for the first time be sure about environment variables. Al
 ---
 
 2.  **Second, deployment:** After download this project (clone it) and install all things, you have to **copy (.env.example) file and rename it to (.env)** and change **APP_DEBUG** to false and **APP_ENV** to production and **Mailer Options** and **Database Options.** You can see **[Laravel configuration page](https://laravel.com/framework/docs/13.x/configuration).** After that, you have to trigger this command: 
+    
     ```bash
     composer run setup-production
     ```
+    
     After that, if you change the **Database Connection** any time, you must trigger this command:
+    
     ```bash
     php artisan migrate --force 
     ```
+    
     You can see **[Laravel Deployment Page](https://laravel.com/framework/docs/13.x/deployment)** for more information or how to deploy this project to real server.
 
 ---
 
 3.  **Third, optimization (caching):** to optimize this project you can trigger this command:
+
     ```bash
     composer run optimize-production
     ```
@@ -56,11 +63,14 @@ When you install them for the first time be sure about environment variables. Al
 ---
 
 4.  **Finally, running :** if you want to run this project in your local machine, you can trigger this command:
+    
     ```bash
     composer run serve
     ```
+    
     This command with run **php server** and **queue server**.
 
+<br>
 
 ## 🤖 Agentic Development
 
@@ -73,6 +83,8 @@ php artisan boost:install
 ```
 
 Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+
+<br>
 
 ## ⚖️ License
 
