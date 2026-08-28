@@ -4,8 +4,6 @@
 
 </center>
 
----
-
 ## 📖 About Task Wheel project
 This project is a task management application that features a unique and interactive **Task Wheel** interface to display tasks intuitively. It provides a structured way to organize and track workflow based on categories and user roles.
 
