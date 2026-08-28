@@ -33,6 +33,7 @@ This project is a task management application that features a unique and interac
 *   **Dark and Light Mode:** The project supports dark mode only so far.
 
 <br>
+<br>
 
 ## 🚀 Getting Started
 1.  **First, installation:** you have to install **[PHP](https://www.php.net/downloads.php), [Composer](https://getcomposer.org/download/) and [Node.js](https://nodejs.org/en/download)** also you can see **[Laravel installation page](https://laravel.com/framework/docs/installation).**
@@ -73,6 +74,7 @@ When you install them for the first time be sure about environment variables. Al
     This command with run **php server** and **queue server**.
 
 <br>
+<br>
 
 ## 🤖 Agentic Development
 
@@ -86,6 +88,7 @@ php artisan boost:install
 
 Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
 
+<br>
 <br>
 
 ## ⚖️ License
