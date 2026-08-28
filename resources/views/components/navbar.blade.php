@@ -44,9 +44,24 @@
 
 
 
+        @php
+            /**
+             * use same number in margin and padding.
+             * This values with affect mainly on the padding of sidebar from edge to the content.
+             * you can set custom value like "bottom".
+             * Make sure to apply it to the element bellow.
+             *
+             * @var object{margin:string, padding:string, bottom:string} $sidebar_padding
+             */
+            $sidebar_padding = (object) [
+                'margin'  => 'm-6',
+                'padding' => 'p-6',
 
+                'bottom'  => 'pb-15',
+            ]
+        @endphp
         {{-- عنوان السايد منيو والإحصائيات  --}}
-        <div class="flex items-center justify-between gap-2 m-6 mb-4 border-b-2 border-zinc-700 pb-3 select-none shrink-0">
+        <div class="flex items-center justify-between gap-2 {{ $sidebar_padding->margin }} mb-4 border-b-2 border-zinc-700 pb-3 select-none shrink-0">
 
                 <h2 class="text-base font-bold text-white flex items-center gap-2 h-9">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
@@ -69,7 +84,7 @@
         </div> --}}
 
         {{-- قائمة المهام المرتبة (Task Items) --}}
-        <div id="upcoming-div" class="space-y-4 overflow-auto p-6 pb-15 pt-2 h-full min-h-0 scrollbar-thin scrollbar-thumb-zinc-700 scrollbar-track-transparent overscroll-contain">
+        <div id="upcoming-div" class="space-y-4 overflow-auto {{ $sidebar_padding->padding }} {{ $sidebar_padding->bottom }} pt-2 h-full min-h-0 scrollbar-thin scrollbar-thumb-zinc-700 scrollbar-track-transparent overscroll-contain">
 
             <span id="upcoming-nothing-span" class="{{-- block --}} hidden w-full select-none cursor-default text-white text-lg font-medium font-serif text-center tracking-widest text-wrap whitespace-pre-line"></span>
 
