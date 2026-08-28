@@ -16,12 +16,9 @@ class indexMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $uri = $request->getRequestUri();
+        if( $request->getRequestUri() === "/index.php" )
+            throw new NotFoundHttpException();
 
-        $a = $uri === '/index.php';
-        $b = ! config('app.index.route.allow', false)     &&      $uri === '/index';
-
-        if( $a || $b ) throw new NotFoundHttpException();
 
         return $next($request);
     }

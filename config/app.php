@@ -123,7 +123,4 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
-
-    'index.route.allow' => env('APP_ALLOW_USE_INDEX_ROUTE', false),
-
 ];
