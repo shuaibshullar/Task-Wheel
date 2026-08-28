@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\loginRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Password;
 
 class login extends Controller
 {
@@ -28,14 +29,15 @@ class login extends Controller
         $request->session()->regenerateToken();
 
 
-        if ($isLogin) {
+        if ($isLogin)
+        {
+            Password::deleteToken(Auth::user());
 
             return to_route('home');
-
-        } else {
-
+        }
+        else
+        {
             return to_route('login_get')->withInput()->with('error', true);
-
         }
     }
 }
