@@ -13,22 +13,36 @@
         <p class="text-sm text-zinc-400 mt-2">Welcome back! Log in to continue your tasks.</p>
       </div>
 
-        @session('error')
-            <div id="error-div" class="mb-5 flex items-center gap-4 rounded-xl border border-rose-500/80 ring-rose-500/80 bg-rose-700/15 outline-none ring-1 p-4 text-sm text-white shadow-lg backdrop-blur-sm transition-all duration-300">
+        @if(session('error', false) || session()->has('status'))
+            @php($status = session('status', false))
+
+
+            <div id="error-div" class="mb-5 flex items-center gap-4 rounded-xl border @if(! $status) border-rose-500/80 ring-rose-500/80 bg-rose-700/15 @else border-emerald-700 ring-emerald-700 bg-emerald-900/20 @endif outline-none ring-1 p-4 text-sm text-white shadow-lg backdrop-blur-sm transition-all duration-300">
 
                 <!-- أيقونة التحذير (SVG) -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                </svg>
+                @if (! $status)
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                @else
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h+6 shrink-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        <path d="m9 12 2 2 4-4"></path>
+                    </svg>
+                @endif
 
                 <!-- نص الرسالة -->
                 <div>
-                    <span class="font-bold text-white me-1">Login error:</span>
-                    Incorrect username or password.
+                    @if(! $status)
+                        <span class="font-bold text-white me-1">Login error:</span>
+                        Incorrect username or password.
+                    @else
+                        {{ session('status') }}
+                    @endif
                 </div>
 
             </div>
-        @endsession
+        @endif
 
       <!-- نموذج المدخلات -->
       <form action="{{ route('login_post') }}" method="POST" class="space-y-4" id="form">
@@ -54,7 +68,7 @@
         <div class="group/password">
           <div class="flex justify-between items-center mb-2">
             <label class="block text-sm font-medium text-zinc-400">Password</label>
-            <a href="{{ route('password-forgot') }}" class="text-xs text-rose-600 hover:text-rose-500 tracking-wide transition-colors">Forgot your password?</a>
+            <a href="{{ route('password-forgot') }}" class="text-xs text-rose-600 hover:text-rose-700 tracking-wide transition-colors">Forgot your password?</a>
           </div>
           <div class="relative">
             <input type="checkbox" id="show-password" class="peer/show-pwd hidden" onchange="changePasswordFieldType(this, 'password_field')">
@@ -115,7 +129,7 @@
       <div class="text-center pt-2 font-mono font-medium tracking-wide text-white">
         <p class="text-sm">
             Don`t have an account?
-          <a href="{{ route('register_get') }}" class="text-rose-600 hover:text-rose-500 font-medium transition-colors cursor-pointer inline-block mr-1">
+          <a href="{{ route('register_get') }}" class="text-rose-600 hover:text-rose-700 font-medium transition-colors cursor-pointer inline-block mr-1">
             Create new account
           </a>
         </p>
