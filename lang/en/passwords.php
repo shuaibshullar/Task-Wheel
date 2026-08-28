@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'reset' => 'Your password has been reset. Login with your new password.',
+    'reset' => 'Your password has been reset.',
     'sent' => 'We have emailed your password reset link.',
     'throttled' => 'Please wait before retrying. You can try again in ' . ceil(config('auth.passwords.users.throttle') / 60) .' minutes.',
     'token' => 'This password reset token is invalid.',
