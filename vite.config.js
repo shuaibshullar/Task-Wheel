@@ -20,9 +20,9 @@ export default defineConfig({
             ],
             refresh: true,
             fonts: [
-                bunny('Instrument Sans', {
-                    weights: [400, 500, 600],
-                }),
+                // bunny('Instrument Sans', {
+                //     weights: [400, 500, 600],
+                // }),
             ],
             buildDirectory: BUILD_DIR,
             hotFile: 'resources/hot',
