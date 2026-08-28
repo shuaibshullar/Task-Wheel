@@ -16,7 +16,7 @@ class indexMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if( $request->getRequestUri() === "/index.php" )
+        if($request->getBaseUrl() !== "")
             throw new NotFoundHttpException();
 
 
