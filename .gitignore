@@ -27,6 +27,7 @@ Homestead.json
 Homestead.yaml
 Thumbs.db
 /.agents/
+/boost.json
 /AGENTS.md
 /resources/fonts-manifest.json
 /resources/manifest.json
