@@ -19,7 +19,7 @@ class indexMiddleware
         $uri = $request->getRequestUri();
 
         $a = $uri === '/index.php';
-        $b = ! USE_INDEX_ROUTE     &&      $uri === '/index';
+        $b = ! config('app.index.route.allow', false)     &&      $uri === '/index';
 
         if( $a || $b ) throw new NotFoundHttpException();
 
