@@ -45,9 +45,9 @@ class BaseFormRequest extends FormRequest {
     /**
      * Get the validator instance for the request.
      *
-     * @return \Illuminate\Contracts\Validation\Validator
+     * @return Validator
      */
-    protected function getValidatorInstance()
+    protected function getValidatorInstance(): Validator
     {
         if ($this->has('email') && is_string($this->email))
             $this->merge([
