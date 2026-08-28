@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\passwordForgotRequest as forgotRequest;
 use App\Http\Requests\passwordResetRequest  as resetRequest;
+use Illuminate\Support\Facades\RateLimiter;
 use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Routing\Exceptions\InvalidSignatureException;
@@ -18,9 +19,16 @@ class passwordResetting extends Controller
 
     public function passwordForgotPost(forgotRequest $request)
     {
-        $status = Password::sendResetLink(
-            $request->only('email')
-        );
+        if ( RateLimiter::attempt('reset-password:' . $request->email, 1, fn () => true, config('auth.passwords.users.throttle')) )
+        {
+            $status = Password::sendResetLink(
+                $request->only('email')
+            );
+        }
+        else
+        {
+            $status = Password::RESET_THROTTLED;
+        }
 
 
         return $status === Password::RESET_LINK_SENT
