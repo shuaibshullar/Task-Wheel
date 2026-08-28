@@ -38,7 +38,7 @@ This project is a task management application that features a unique and interac
 1.  **First, installation:** you have to install **[PHP](https://www.php.net/downloads.php), [Composer](https://getcomposer.org/download/) and [Node.js](https://nodejs.org/en/download)** also you can see **[Laravel installation page](https://laravel.com/framework/docs/installation).**
 When you install them for the first time be sure about environment variables. Also, you may need to change **php.ini file** to apply some extensions which composer need them.
 
-*   **
+<br>
 
 2.  **Second, deployment:** After download this project (clone it) and install all things, you have to **copy (.env.example) file and rename it to (.env)** and change **APP_DEBUG** to false and **APP_ENV** to production and **Mailer Options** and **Database Options.** You can see **[Laravel configuration page](https://laravel.com/framework/docs/13.x/configuration).** After that, you have to trigger this command: 
     
@@ -54,7 +54,7 @@ When you install them for the first time be sure about environment variables. Al
     
     You can see **[Laravel Deployment Page](https://laravel.com/framework/docs/13.x/deployment)** for more information or how to deploy this project to real server.
 
-*   **
+<br>
 
 3.  **Third, optimization (caching):** to optimize this project you can trigger this command:
 
@@ -62,7 +62,7 @@ When you install them for the first time be sure about environment variables. Al
     composer run optimize-production
     ```
 
-*   **
+<br>
 
 4.  **Finally, running :** if you want to run this project in your local machine, you can trigger this command:
     
