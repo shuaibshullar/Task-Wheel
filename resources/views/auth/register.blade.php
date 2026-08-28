@@ -187,7 +187,7 @@
             <p class="text-sm">
                 @if($adminView) Go to the @else You have an account? @endif
               <a href="@if($adminView) {{ route('home') }} @else {{ route('login_get') }} @endif"
-                 class="text-rose-600 hover:text-rose-500 font-medium transition-colors cursor-pointer inline-block mr-1">
+                 class="text-rose-600 hover:text-rose-700 font-medium transition-colors cursor-pointer inline-block mr-1">
                 @if($adminView) home page. @else Log in page @endif
               </a>
             </p>

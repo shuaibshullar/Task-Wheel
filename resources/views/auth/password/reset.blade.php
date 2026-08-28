@@ -180,7 +180,7 @@
                     <div class="text-center pt-2">
                         <p class="text-sm">
                             Not you?
-                            <button type="submit" class="text-rose-600 hover:text-rose-500 font-medium transition-colors cursor-pointer inline-block mr-1 outline-none">
+                            <button type="submit" class="text-rose-600 hover:text-rose-700 font-medium transition-colors cursor-pointer inline-block mr-1 outline-none">
                                 Log out
                             </button>
                             to sign in with a different account.

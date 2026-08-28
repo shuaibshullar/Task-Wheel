@@ -90,7 +90,7 @@
             <p class="text-sm">
                 You have an account?
                 <a href="{{ route('login_get') }}"
-                   class="text-rose-600 hover:text-rose-500 font-medium transition-colors cursor-pointer inline-block mr-1">
+                   class="text-rose-600 hover:text-rose-700 font-medium transition-colors cursor-pointer inline-block mr-1">
                     Log in page
                 </a>
             </p>
