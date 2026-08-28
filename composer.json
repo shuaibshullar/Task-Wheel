@@ -46,13 +46,21 @@
             "npm install --ignore-scripts",
             "npm run build"
         ],
-        "setup-div": [
+        "setup-production": [
             "composer install --no-dev -a",
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "@php artisan key:generate",
             "@php artisan migrate --force",
-            "npm install --ignore-scripts",
+            "npm install --omit=dev --ignore-scripts",
             "npm run build"
+        ],
+        "optimize-production": [
+            "@php artisan optimize:clear",
+            "@php artisan optimize"
+        ],
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "npx concurrently -c \"#93c5fd,#c4b5fd\" \"php artisan serve\" \"php artisan queue:work\" --names='server,queue'"
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
