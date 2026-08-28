@@ -66,7 +66,15 @@ async function closeBundle() {
         try {
             await fs.access(sourcePath);
         } catch {
-            console.warn(`[move-manifest] caution: "${label}" doesn't exist in "${sourcePath}".`);
+            console.warn(`[move-manifest] Caution: "${label}" doesn't exist in "${sourcePath}".`);
+
+            try {
+                await fs.unlink(destPath);
+                console.log(`[move-manifest] Info: deleting the "${label}" file in "${sourcePath}" is done.`);
+            } catch {
+                // لا مشكلة لو ما كانت موجودة أصلًا
+            }
+
             console.log('');
             continue;
         }
@@ -75,7 +83,7 @@ async function closeBundle() {
         try {
 
             await fs.unlink(destPath);
-            console.log(`[move-manifest] info: deleting the "${label}" file in "${destPath}" is done.`);
+            console.log(`[move-manifest] Info: deleting the "${label}" file in "${destPath}" is done.`);
 
         } catch {
             // لا مشكلة لو ما كانت موجودة أصلًا
