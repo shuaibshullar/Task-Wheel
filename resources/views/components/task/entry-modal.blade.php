@@ -117,14 +117,14 @@
     x-on:transitionend="if ($event.propertyName === 'translate' && closeEvent) {  enablePageScroll(/* this.div */); closeEvent = false  }"
 >
 
-    <input type="checkbox" class="hidden peer" id="{{ $id }}" @change.self="change" @checked(session('taskCreateBack', false) || session('taskUpdateBack', false))>
+    <input type="checkbox" class="hidden peer" id="{{ $id }}" @change.self="change()" @checked(session('taskCreateBack', false) || session('taskUpdateBack', false))>
 
     <div class="fixed inset-0 p-8 flex items-center-safe justify-center-safe antialiased selection:bg-indigo-500/30 selection:text-white bg-black/70 backdrop-blur-sm z-999 opacity-0 pointer-events-none transition-all peer-checked:opacity-100 peer-checked:pointer-events-auto cursor-auto overflow-auto overscroll-contain
         duration-700 ease-out
         not-peer-checked:*:-translate-y-1/6 peer-checked:*:translate-0 *:transition-all *:duration-700 *:ease-out"
 
-        @mousedown.self="outside = ! modal.contains($event.target)"
-        @mouseup.self="if ( outside && ! modal.contains($event.target) ) checkbox(false)"
+        @mousedown="outside = ! modal.contains($event.target)"
+        @mouseup="if ( outside && ! modal.contains($event.target) ) checkbox(false)"
         @keydown.escape.window="checkbox(false)"
     >
         <div class="w-full max-w-xl bg-zinc-900/60 backdrop-blur-md border border-zinc-800/80 rounded-2xl p-8 shadow-2xl shadow-black/60 relative overflow-show z-998">

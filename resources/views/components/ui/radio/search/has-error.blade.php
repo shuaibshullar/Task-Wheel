@@ -23,10 +23,10 @@
         checkbox(value, check) {
             const checkBox = this.choices[value.toLowerCase()]?.querySelector('& input');
             if (! checkBox) return;
-            const data     = Alpine.$data(checkBox);
 
             checkBox.checked = check;
-            data.init();
+
+            if (checkBox.checked) this.choice = checkBox.value;
         },
         clear() {
             for (const [key, choice] of Object.entries(this.choices))
@@ -168,7 +168,6 @@
     @transitionstart="if ($event.propertyName === 'height') $nextTick(() => scroll(true))"
     @transitionend="if ($event.propertyName === 'height') $nextTick(() => scroll(false))"
 >
-
     <input class="hidden peer" type="checkbox" :checked="isOpen">
 
     <label class="block text-sm font-medium text-zinc-400 mb-2">{{ $title }}</label>

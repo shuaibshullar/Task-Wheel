@@ -7,11 +7,7 @@
         <div class="relative flex items-center justify-center">
             <input type="radio" name="{{ $name }}" value="{{ $value }}" class="peer sr-only"
                 @change="if ($el.checked) choice = $el.value"
-                x-data="{
-                    init() {
-                        if ($el.checked) choice = $el.value
-                    }
-                }"
+                x-init="if ($el.checked) choice = $el.value"
                 @checked(old($name) === $value)
             >
             <div class="w-4 h-4 rounded-full border-white border-2 bg-transparent transition-all duration-200 ease-out peer-checked:bg-indigo-600 peer-checked:border-indigo-600"></div>
